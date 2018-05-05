@@ -1,6 +1,7 @@
 package combruce_willis.github.xkcd;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -128,6 +129,6 @@ public class ComicFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(View startView, Uri uri);
     }
 }
