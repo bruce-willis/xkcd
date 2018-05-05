@@ -1,5 +1,6 @@
 package combruce_willis.github.xkcd;
 
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -9,8 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
+import java.util.Random;
 
 import combruce_willis.github.xkcd.ComicFragment.OnListFragmentInteractionListener;
 import combruce_willis.github.xkcd.dummy.DummyContent.DummyItem;
@@ -25,6 +28,8 @@ public class ComicRecyclerViewAdapter extends RecyclerView.Adapter<ComicRecycler
     private final List<DummyItem> mValues;
     private final OnListFragmentInteractionListener mListener;
     private List<String> ComicsUrl;
+
+    private static final Random sRandom = new Random();
 
     public ComicRecyclerViewAdapter(List<DummyItem> items, List<String> comicsUrl, OnListFragmentInteractionListener listener) {
         mValues = items;
@@ -41,7 +46,7 @@ public class ComicRecyclerViewAdapter extends RecyclerView.Adapter<ComicRecycler
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.mItem = mValues.get(position);
+//        holder.mItem = mValues.get(position);
 //        holder.mIdView.setText(mValues.get(position).id);
 //        holder.mContentView.setText(mValues.get(position).content);
 
@@ -51,6 +56,8 @@ public class ComicRecyclerViewAdapter extends RecyclerView.Adapter<ComicRecycler
         Glide
                 .with((AppCompatActivity) this.mListener)
                 .load(ComicsUrl.get(position))
+                .apply(new RequestOptions()
+                        .placeholder(new ColorDrawable(sRandom.nextInt())))
                 .into(holder.comic);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
