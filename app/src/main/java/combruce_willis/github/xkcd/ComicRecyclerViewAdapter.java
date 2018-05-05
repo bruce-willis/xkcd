@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.Random;
 import combruce_willis.github.xkcd.ComicFragment.OnListFragmentInteractionListener;
 import combruce_willis.github.xkcd.dummy.DummyContent.DummyItem;
 
+
 /**
  * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
@@ -25,11 +27,10 @@ import combruce_willis.github.xkcd.dummy.DummyContent.DummyItem;
  */
 public class ComicRecyclerViewAdapter extends RecyclerView.Adapter<ComicRecyclerViewAdapter.ViewHolder> {
 
+    private static final Random sRandom = new Random();
     private final List<DummyItem> mValues;
     private final OnListFragmentInteractionListener mListener;
     private List<String> ComicsUrl;
-
-    private static final Random sRandom = new Random();
 
     public ComicRecyclerViewAdapter(List<DummyItem> items, List<String> comicsUrl, OnListFragmentInteractionListener listener) {
         mValues = items;
@@ -51,13 +52,18 @@ public class ComicRecyclerViewAdapter extends RecyclerView.Adapter<ComicRecycler
 //        holder.mContentView.setText(mValues.get(position).content);
 
         /* How to choose right context for glide
-         * @see <a href="https://stackoverflow.com/a/32887693">Stack answer</a>
+         * @see <a href="https://stackoverflow.com/a/32887693">Stack answer</a>         *
+         *
+         * Use hardware bitmap
+         * @see <a href="https://bumptech.github.io/glide/doc/hardwarebitmaps.html#why-should-we-use-hardware-bitmaps">Documentation</a>
          */
         Glide
                 .with((AppCompatActivity) this.mListener)
                 .load(ComicsUrl.get(position))
                 .apply(new RequestOptions()
+                        .format(DecodeFormat.PREFER_ARGB_8888)
                         .placeholder(new ColorDrawable(sRandom.nextInt())))
+                //.transition(withCrossFade())
                 .into(holder.comic);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
