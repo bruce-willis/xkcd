@@ -1,10 +1,16 @@
 package combruce_willis.github.xkcd;
 
+import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import combruce_willis.github.xkcd.ComicFragment.OnListFragmentInteractionListener;
 import combruce_willis.github.xkcd.dummy.DummyContent.DummyItem;
@@ -19,10 +25,12 @@ import java.util.List;
 public class ComicRecyclerViewAdapter extends RecyclerView.Adapter<ComicRecyclerViewAdapter.ViewHolder> {
 
     private final List<DummyItem> mValues;
+    private List<String> ComicsUrl;
     private final OnListFragmentInteractionListener mListener;
 
-    public ComicRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public ComicRecyclerViewAdapter(List<DummyItem> items, List<String> comicsUrl, OnListFragmentInteractionListener listener) {
         mValues = items;
+        ComicsUrl = comicsUrl;
         mListener = listener;
     }
 
@@ -38,6 +46,11 @@ public class ComicRecyclerViewAdapter extends RecyclerView.Adapter<ComicRecycler
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).id);
         holder.mContentView.setText(mValues.get(position).content);
+
+        Glide.with((AppCompatActivity) this.mListener)
+                .load(ComicsUrl.get(position))
+                //.diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.comic);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +73,7 @@ public class ComicRecyclerViewAdapter extends RecyclerView.Adapter<ComicRecycler
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
+        public ImageView comic;
         public DummyItem mItem;
 
         public ViewHolder(View view) {
@@ -67,6 +81,7 @@ public class ComicRecyclerViewAdapter extends RecyclerView.Adapter<ComicRecycler
             mView = view;
             mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
+            comic = (ImageView) view.findViewById(R.id.imageView);
         }
 
         @Override
