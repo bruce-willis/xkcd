@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.DecodeFormat;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
@@ -104,6 +105,7 @@ public class FullScreenComicFragment extends Fragment {
         Glide.with(this)
                 .load(comic.getImageUrl())
                 .apply(new RequestOptions()
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
                         .dontTransform()
                         .format(DecodeFormat.PREFER_ARGB_8888))
