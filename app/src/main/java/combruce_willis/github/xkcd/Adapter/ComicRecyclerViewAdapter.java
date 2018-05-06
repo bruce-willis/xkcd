@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.DecodeFormat;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
@@ -158,6 +159,7 @@ public class ComicRecyclerViewAdapter extends RecyclerView.Adapter<ComicRecycler
             requestManager
                     .load(ComicsData.COMICS[adapterPosition].getImageUrl())
                     .apply(new RequestOptions()
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .format(DecodeFormat.PREFER_ARGB_8888)
                             .placeholder(new ColorDrawable(sRandom.nextInt())))
                     .listener(new RequestListener<Drawable>() {

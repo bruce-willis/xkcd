@@ -9,7 +9,7 @@ TO-DO list with status can be found in [`projects`](https://github.com/bruce-wil
 ### Used libraries  
 * [Glide](https://github.com/bumptech/glide) for working with images. You can read more about reasons to pick it [here](https://github.com/bruce-willis/xkcd/issues/1)
 * [PhotoView](https://github.com/chrisbanes/PhotoView) for zooming comics
-* [Espresso](https://developer.android.com/training/testing/espresso/) for UI testing
+* [Espresso](https://developer.android.com/training/testing/espresso/) for UI testing. Basic UI tests can be found [here](https://github.com/bruce-willis/xkcd/blob/develop/app/src/androidTest/java/combruce_willis/github/xkcd/RecyclerViewInstrumentedTest.java)
 
 ### Used materials / Thanks
 * #### Glide
@@ -31,3 +31,7 @@ TO-DO list with status can be found in [`projects`](https://github.com/bruce-wil
 * #### Espresso
     * [Interact with recyclerview list items](https://developer.android.com/training/testing/espresso/lists#recycler-view-list-items)
     * [Testing ViewPager with Espresso](https://stackoverflow.com/a/29872541)
+
+* #### Toolbar
+    * [How to display android actionbar title without truncation occurring](https://stackoverflow.com/a/39713727)
+    * [ActionBar Up button like the back button](https://alvinalexander.com/source-code/android/how-get-android-actionbar-backup-button-work-android-back-button)

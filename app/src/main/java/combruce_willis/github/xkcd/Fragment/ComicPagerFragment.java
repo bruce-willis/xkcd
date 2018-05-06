@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.SharedElementCallback;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import java.util.Map;
 
 import combruce_willis.github.xkcd.Adapter.ComicPagerAdapter;
 import combruce_willis.github.xkcd.MainActivity;
+import combruce_willis.github.xkcd.Model.HackyViewPager;
 import combruce_willis.github.xkcd.R;
 
 
@@ -27,13 +29,26 @@ import combruce_willis.github.xkcd.R;
 public class ComicPagerFragment extends Fragment {
 
 
-    private ViewPager viewPager;
+    private HackyViewPager viewPager;
+
+
+    /*
+     * set title back and remove home button from action bar,
+     * when user return back to recyclerview
+     */
+    @Override
+    public void onDetach() {
+        getActivity().setTitle(R.string.app_name);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getActivity().invalidateOptionsMenu();
+        super.onDetach();
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        viewPager = (ViewPager) inflater.inflate(R.layout.fragment_comic_pager, container, false);
+        viewPager = (HackyViewPager) inflater.inflate(R.layout.fragment_comic_pager, container, false);
         viewPager.setAdapter(new ComicPagerAdapter(this));
         // Set the current position and add a listener that will update the selection coordinator when
         // paging the images.
