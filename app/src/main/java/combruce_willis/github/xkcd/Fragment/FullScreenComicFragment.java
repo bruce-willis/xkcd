@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -29,6 +31,7 @@ import combruce_willis.github.xkcd.R;
 public class FullScreenComicFragment extends Fragment {
 
     private static final String KEY_IMAGE_RES = "KEY_IMAGE_RES";
+    private Comic comic;
 
 
     public static FullScreenComicFragment newInstance(Comic comic) {
@@ -39,6 +42,17 @@ public class FullScreenComicFragment extends Fragment {
         return fragment;
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        getActivity().setTitle(comic.getTitle());
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        super.onCreate(savedInstanceState);
+    }
 
     @Nullable
     @Override
@@ -47,19 +61,17 @@ public class FullScreenComicFragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_full_screen_comic, container, false);
 
         Bundle arguments = getArguments();
-        Comic comic = arguments.getParcelable(KEY_IMAGE_RES);
-        String imageRes = comic.getImageUrl();
+        comic = arguments.getParcelable(KEY_IMAGE_RES);
 
-        //getActivity().setTitle(comic.getTitle());
-        //((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(comic.getTitle());
+        //((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Just like we do when binding views at the grid, we set the transition name to be the string
         // value of the image res.
-        view.findViewById(R.id.full_screen_comic).setTransitionName(String.valueOf(imageRes));
+        view.findViewById(R.id.full_screen_comic).setTransitionName(String.valueOf(comic.getImageUrl()));
 
         // Load the image with Glide to prevent OOM error when the image drawables are very large.
         Glide.with(this)
-                .load(imageRes)
+                .load(comic.getImageUrl())
                 .apply(new RequestOptions()
                         .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
                         .dontTransform()
