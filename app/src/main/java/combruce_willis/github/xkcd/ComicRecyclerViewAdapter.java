@@ -41,7 +41,7 @@ public class ComicRecyclerViewAdapter extends RecyclerView.Adapter<ComicRecycler
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_comic, parent, false);
+                .inflate(R.layout.fragment_comic_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -61,6 +61,7 @@ public class ComicRecyclerViewAdapter extends RecyclerView.Adapter<ComicRecycler
                 .with((AppCompatActivity) this.mListener)
                 .load(ComicsUrl.get(position))
                 .apply(new RequestOptions()
+                        //.fitCenter()
                         .format(DecodeFormat.PREFER_ARGB_8888)
                         .placeholder(new ColorDrawable(sRandom.nextInt())))
                 //.transition(withCrossFade())
