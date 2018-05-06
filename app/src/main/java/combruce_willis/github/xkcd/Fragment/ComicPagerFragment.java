@@ -39,6 +39,7 @@ public class ComicPagerFragment extends Fragment {
     public void onDetach() {
         getActivity().setTitle(R.string.app_name);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getActivity().invalidateOptionsMenu();
         super.onDetach();
     }
 

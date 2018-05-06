@@ -1,6 +1,7 @@
 package combruce_willis.github.xkcd.Fragment;
 
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -35,7 +36,6 @@ public class FullScreenComicFragment extends Fragment {
     private static final String KEY_IMAGE_RES = "KEY_IMAGE_RES";
     private Comic comic;
 
-
     public static FullScreenComicFragment newInstance(Comic comic) {
         FullScreenComicFragment fragment = new FullScreenComicFragment();
         Bundle argument = new Bundle();
@@ -46,8 +46,8 @@ public class FullScreenComicFragment extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     /*
@@ -58,6 +58,12 @@ public class FullScreenComicFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         getActivity().setTitle(comic.getTitle());
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Inflate menu resource file.
+        inflater.inflate(R.menu.menu_items, menu);
+
+        menu.findItem(R.id.menu_item_share).setVisible(true);
+
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -67,6 +73,13 @@ public class FullScreenComicFragment extends Fragment {
             // Respond to the action bar's Up/Home button
             case android.R.id.home:
                 getActivity().onBackPressed();
+                return true;
+            case R.id.menu_item_share:
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Hi! Check out this amazing comic " + comic.getImageUrl());
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
                 return true;
         }
         return super.onOptionsItemSelected(item);
