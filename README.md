@@ -9,6 +9,7 @@ TO-DO list with status can be found in [`projects`](https://github.com/bruce-wil
 ### Used libraries  
 * [Glide](https://github.com/bumptech/glide) for working with images. You can read more about reasons to pick it [here](https://github.com/bruce-willis/xkcd/issues/1)
 * [PhotoView](https://github.com/chrisbanes/PhotoView) for zooming comics
+* [Espresso](https://developer.android.com/training/testing/espresso/) for UI testing
 
 ### Used materials / Thanks
 * #### Glide
@@ -26,3 +27,7 @@ TO-DO list with status can be found in [`projects`](https://github.com/bruce-wil
     * [Android asset studio](https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html) for possibility to add `score` effect. Difference with default image:
     ![difference](https://i.imgur.com/N9SvwTh.png)
     * [Create](https://android.jlelse.eu/launch-screen-in-android-the-right-way-aca7e8c31f52) splash screen in the right way (without unnecessary activity)
+
+* #### Espresso
+    * [Interact with recyclerview list items](https://developer.android.com/training/testing/espresso/lists#recycler-view-list-items)
+    * [Testing ViewPager with Espresso](https://stackoverflow.com/a/29872541)
