@@ -24,12 +24,6 @@ public class ComicListFragment extends Fragment {
 
     private RecyclerView recyclerView;
 
-    @Override
-    public void onResume() {
-        getActivity().setTitle(R.string.app_name);
-        super.onResume();
-    }
-
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).

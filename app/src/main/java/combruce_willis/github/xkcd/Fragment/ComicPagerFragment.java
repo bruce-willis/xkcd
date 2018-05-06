@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.SharedElementCallback;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
@@ -28,6 +29,18 @@ public class ComicPagerFragment extends Fragment {
 
 
     private ViewPager viewPager;
+
+
+    /*
+     * set title back and remove home button from action bar,
+     * when user return back to recyclerview
+     */
+    @Override
+    public void onDetach() {
+        getActivity().setTitle(R.string.app_name);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        super.onDetach();
+    }
 
     @Nullable
     @Override
