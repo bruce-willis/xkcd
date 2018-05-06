@@ -19,6 +19,7 @@ import java.util.Map;
 
 import combruce_willis.github.xkcd.Adapter.ComicPagerAdapter;
 import combruce_willis.github.xkcd.MainActivity;
+import combruce_willis.github.xkcd.Model.HackyViewPager;
 import combruce_willis.github.xkcd.R;
 
 
@@ -28,7 +29,7 @@ import combruce_willis.github.xkcd.R;
 public class ComicPagerFragment extends Fragment {
 
 
-    private ViewPager viewPager;
+    private HackyViewPager viewPager;
 
 
     /*
@@ -47,7 +48,7 @@ public class ComicPagerFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        viewPager = (ViewPager) inflater.inflate(R.layout.fragment_comic_pager, container, false);
+        viewPager = (HackyViewPager) inflater.inflate(R.layout.fragment_comic_pager, container, false);
         viewPager.setAdapter(new ComicPagerAdapter(this));
         // Set the current position and add a listener that will update the selection coordinator when
         // paging the images.
