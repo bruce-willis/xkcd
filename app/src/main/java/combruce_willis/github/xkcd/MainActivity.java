@@ -14,13 +14,14 @@ public class MainActivity extends AppCompatActivity {
      * Holds the current image position to be shared between the grid and the pager fragments. This
      * position updated when a grid item is clicked, or when paging the pager.
      * <p>
-     * In this demo app, the position always points to an image index at the {@link
+     * The position always points to an image index at the {@link
      * combruce_willis.github.xkcd.Model.ComicsData} class.
      */
     public static int currentPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (savedInstanceState != null) {
