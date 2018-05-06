@@ -19,13 +19,13 @@ public class Comic implements Parcelable {
     private String title;
     private String imageUrl;
 
-    public Comic(int number, String title, String imageUrl) {
+    Comic(int number, String title, String imageUrl) {
         this.number = number;
         this.title = title;
         this.imageUrl = imageUrl;
     }
 
-    protected Comic(Parcel in) {
+    private Comic(Parcel in) {
         this.number = in.readInt();
         this.title = in.readString();
         this.imageUrl = in.readString();

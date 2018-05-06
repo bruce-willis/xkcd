@@ -2,7 +2,7 @@ package combruce_willis.github.xkcd.Model;
 
 // TODO: get comics from the web
 public abstract class ComicsData {
-    static final Comic[] COMICS = {
+    public static final Comic[] COMICS = {
             new Comic(472, "<span style=\"color: #0000ED\">House</span> of Pancakes", "https://imgs.xkcd.com/comics/house_of_pancakes.png"),
             new Comic(523, "Decline", "https://imgs.xkcd.com/comics/decline.png"),
             new Comic(482, "Height", "https://imgs.xkcd.com/comics/height.png"),
