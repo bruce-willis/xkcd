@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">xkcd</string>
+    <string name="transition_name">image_transition</string>
+    <string name="comic_description">Comic</string>
 </resources>
