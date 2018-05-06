@@ -1,9 +1,29 @@
 # xkcd
 Best app to view xkcd comics
 
+<p align="center">
+    <img src="app\src\main\ic_launcher-web.png" alt="logo">
+</p>
+
+* [Installation](#installation)
+* [TO-DO list](#to-do-list)
+* [Used libraries](#used-libraries)
+* [Used materials / Thanks](#used-materials-thanks)
+* [Screenshots & gifs](#screenshots-and-gifs)
+
+### Installation
+* Download `apk` from [release](https://github.com/bruce-willis/xkcd/releases) section
+* build manually:
+```
+git clone https://github.com/bruce-willis/xkcd.git
+cd xkcd
+./gradlew jar
+```
+
+**Note**: Make sure your *Android SDK* has the *Android Support Repository* installed, and that your `$ANDROID_HOME` environment
+variable is pointing at the SDK or add a `local.properties` file in the root project with a `sdk.dir=...` line.
+
 ### TO-DO list
-<!-- Task              | Status
-------------------|------------------- -->
 TO-DO list with status can be found in [`projects`](https://github.com/bruce-willis/xkcd/projects/1) section
 
 ### Used libraries  
@@ -35,3 +55,27 @@ TO-DO list with status can be found in [`projects`](https://github.com/bruce-wil
 * #### Toolbar
     * [How to display android actionbar title without truncation occurring](https://stackoverflow.com/a/39713727)
     * [ActionBar Up button like the back button](https://alvinalexander.com/source-code/android/how-get-android-actionbar-backup-button-work-android-back-button)
+
+
+### Screenshots and gifs
+* main screen  
+![main](https://i.imgur.com/rFuuPI5.png?1)
+* fast opening & caching  
+![open](https://thumbs.gfycat.com/ShamelessThatBufflehead-size_restricted.gif)  
+* fast scrolling  
+![scroll](https://thumbs.gfycat.com/FaintLongCivet-size_restricted.gif)
+* Continuous Shared Element Transitions (specially slow down animation speed)  
+![transition](https://thumbs.gfycat.com/AdoredScornfulInsect-size_restricted.gif)
+
+* zooming  
+
+![zooming](https://thumbs.gfycat.com/LoneMetallicBluetickcoonhound-size_restricted.gif)
+* swiping  
+
+![swiping](https://thumbs.gfycat.com/ScratchyInfatuatedDoe-size_restricted.gif)
+* change recyclerview position (attention that recyclerview scrolled down)
+
+![change](https://thumbs.gfycat.com/ShockedPalatableAnophelesmosquito-size_restricted.gif)
+* sharing  
+
+![sharing](https://thumbs.gfycat.com/PiercingDazzlingGermanspaniel-size_restricted.gif)
