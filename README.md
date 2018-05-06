@@ -5,12 +5,23 @@ Best app to view xkcd comics
     <img src="app\src\main\ic_launcher-web.png" alt="logo">
 </p>
 
-
+* [Installation](#installation)
 * [TO-DO list](#to-do-list)
 * [Used libraries](#used-libraries)
 * [Used materials / Thanks](#used-materials-thanks)
 * [Screenshots & gifs](#screenshots-and-gifs)
 
+### Installation
+* Download `apk` from [release](https://github.com/bruce-willis/xkcd/releases) section
+* build manually:
+```
+git clone https://github.com/bruce-willis/xkcd.git
+cd xkcd
+./gradlew jar
+```
+
+**Note**: Make sure your *Android SDK* has the *Android Support Repository* installed, and that your `$ANDROID_HOME` environment
+variable is pointing at the SDK or add a `local.properties` file in the root project with a `sdk.dir=...` line.
 
 ### TO-DO list
 TO-DO list with status can be found in [`projects`](https://github.com/bruce-willis/xkcd/projects/1) section
