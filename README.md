@@ -20,3 +20,9 @@ TO-DO list with status can be found in [`projects`](https://github.com/bruce-wil
 
 * #### PhotoView
     * [Work around](https://github.com/chrisbanes/PhotoView/commit/92a2a281134ceddc6e402ba4a83cc91180db8115) for [annoying bug with viewgroup](https://github.com/chrisbanes/PhotoView#issues-with-viewgroups)
+
+* #### Icons&Splashcreen
+    * [Official documentation](https://developer.android.com/studio/write/image-asset-studio#create-adaptive) for creating adaptive and legacy launcher icons
+    * [Android asset studio](https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html) for possibility to add `score` effect. Difference with default image:
+    ![difference](https://i.imgur.com/N9SvwTh.png)
+    * [Create](https://android.jlelse.eu/launch-screen-in-android-the-right-way-aca7e8c31f52) splash screen in the right way (without unnecessary activity)
