@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">xkcd</string>
+    <string name="comic_description">Comic</string>
+</resources>
