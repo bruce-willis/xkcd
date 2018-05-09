@@ -5,11 +5,17 @@ Best app to view xkcd comics
     <img src="app\src\main\ic_launcher-web.png" alt="logo">
 </p>
 
+* [Continuous Integration](#continuous-integration)
 * [Installation](#installation)
 * [TO-DO list](#to-do-list)
 * [Used libraries](#used-libraries)
 * [Used materials / Thanks](#used-materials-thanks)
 * [Screenshots & gifs](#screenshots-and-gifs)
+
+### Continuous Integration (dev branch)
+* Visual Studio Team Services [![vsts](https://bruce-willis.visualstudio.com/_apis/public/build/definitions/805c67a2-ed1b-4f2b-943b-ff691a6ea17c/4/badge)](https://bruce-willis.visualstudio.com)
+* AppCenter [![Build status](https://build.appcenter.ms/v0.1/apps/5e1b026d-abd4-465a-8558-da9f4ea29c1e/branches/develop/badge)](https://appcenter.ms)
+* CircleCI [![CircleCI](https://circleci.com/gh/bruce-willis/xkcd.svg?style=svg)](https://circleci.com/gh/bruce-willis/xkcd)
 
 ### Installation
 * Download `apk` from [release](https://github.com/bruce-willis/xkcd/releases) section
@@ -17,7 +23,7 @@ Best app to view xkcd comics
 ```
 git clone https://github.com/bruce-willis/xkcd.git
 cd xkcd
-./gradlew jar
+./gradlew build
 ```
 
 **Note**: Make sure your *Android SDK* has the *Android Support Repository* installed, and that your `$ANDROID_HOME` environment
