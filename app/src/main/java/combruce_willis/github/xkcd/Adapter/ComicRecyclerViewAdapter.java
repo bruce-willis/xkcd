@@ -65,7 +65,7 @@ public class ComicRecyclerViewAdapter extends RecyclerView.Adapter<ComicRecycler
      */
     private interface IViewHolderListener {
 
-        void onLoadCompleted(ImageView view, int adapterPosition);
+        void onLoadCompleted(int adapterPosition);
 
         void onItemClicked(View view, int adapterPosition);
     }
@@ -75,8 +75,8 @@ public class ComicRecyclerViewAdapter extends RecyclerView.Adapter<ComicRecycler
      */
     private static class ViewHolderListener implements IViewHolderListener {
 
-        private Fragment fragment;
-        private AtomicBoolean enterTransitionStarted;
+        private final Fragment fragment;
+        private final AtomicBoolean enterTransitionStarted;
 
         ViewHolderListener(Fragment fragment) {
             this.fragment = fragment;
@@ -84,7 +84,7 @@ public class ComicRecyclerViewAdapter extends RecyclerView.Adapter<ComicRecycler
         }
 
         @Override
-        public void onLoadCompleted(ImageView view, int position) {
+        public void onLoadCompleted(int position) {
             // Call startPostponedEnterTransition only when the 'selected' image loading is completed.
             if (MainActivity.currentPosition != position) {
                 return;
@@ -166,14 +166,14 @@ public class ComicRecyclerViewAdapter extends RecyclerView.Adapter<ComicRecycler
                         @Override
                         public boolean onLoadFailed(@Nullable GlideException e, Object model,
                                                     Target<Drawable> target, boolean isFirstResource) {
-                            IViewHolderListener.onLoadCompleted(image, adapterPosition);
+                            IViewHolderListener.onLoadCompleted(adapterPosition);
                             return false;
                         }
 
                         @Override
                         public boolean onResourceReady(Drawable resource, Object model, Target<Drawable>
                                 target, DataSource dataSource, boolean isFirstResource) {
-                            IViewHolderListener.onLoadCompleted(image, adapterPosition);
+                            IViewHolderListener.onLoadCompleted(adapterPosition);
                             return false;
                         }
                     })

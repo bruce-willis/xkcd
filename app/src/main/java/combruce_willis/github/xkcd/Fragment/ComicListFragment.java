@@ -39,7 +39,6 @@ public class ComicListFragment extends Fragment {
 
         // Set the adapter
         if (view instanceof RecyclerView) {
-            Context context = view.getContext();
             recyclerView = (RecyclerView) view;
             recyclerView.setAdapter(new ComicRecyclerViewAdapter(this));
 
