@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
+
 import combruce_willis.github.xkcd.Fragment.ComicListFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
+
+        AppCenter.start(getApplication(), "0c59610c-d066-49d8-98f1-f421529aa612", Analytics.class, Crashes.class);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (savedInstanceState != null) {
