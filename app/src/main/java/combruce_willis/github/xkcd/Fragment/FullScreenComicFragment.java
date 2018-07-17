@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ShareActionProvider;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -36,6 +38,8 @@ public class FullScreenComicFragment extends Fragment {
 
     private static final String KEY_IMAGE_RES = "KEY_IMAGE_RES";
     private Comic comic;
+    private ShareActionProvider mShareActionProvider;
+
 
     public static FullScreenComicFragment newInstance(Comic comic) {
         FullScreenComicFragment fragment = new FullScreenComicFragment();
@@ -64,6 +68,18 @@ public class FullScreenComicFragment extends Fragment {
         inflater.inflate(R.menu.menu_items, menu);
 
         menu.findItem(R.id.menu_item_share).setVisible(true);
+
+        // Locate MenuItem with ShareActionProvider
+        MenuItem item = menu.findItem(R.id.menu_item_share);
+// Fetch and store ShareActionProvider
+        mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND)
+                .setType("text/plain")
+                .putExtra(Intent.EXTRA_TEXT, "http://gihyo.co.jp/");
+
+        if (mShareActionProvider != null)
+            mShareActionProvider.setShareIntent(shareIntent);
 
         super.onCreateOptionsMenu(menu, inflater);
     }
