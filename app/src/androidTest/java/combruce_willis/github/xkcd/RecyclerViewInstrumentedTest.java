@@ -22,6 +22,7 @@ import static android.support.test.espresso.action.ViewActions.swipeLeft;
 import static android.support.test.espresso.action.ViewActions.swipeRight;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.assertEquals;
 
@@ -81,7 +82,7 @@ public class RecyclerViewInstrumentedTest {
     public void testRecyclerItemClicked() {
         onView(withId(R.id.recycler_view)).perform(RecyclerViewActions.actionOnItemAtPosition(200, click()));
         onView(withId(R.id.view_pager)).check(matches(isCompletelyDisplayed()));
-        onView(withIndex(withId(R.id.full_screen_comic), 0)).check(matches(isCompletelyDisplayed()));
+        onView(withIndex(withId(R.id.full_screen_comic), 0)).check(matches(isDisplayed()));
     }
 
     /*
